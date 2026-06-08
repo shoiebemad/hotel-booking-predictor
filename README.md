@@ -19,4 +19,5 @@ Hotels lose significant revenue from booking cancellations. This project uses re
 
 ## Tech Stack
 Python, Pandas, Scikit-learn, XGBoost, Matplotlib, Seaborn, Streamlit
-@ Epsilon-AI
+## Course
+Built as part of the final project for [Epsilon AI](https://github.com/EPSILON-AI)
