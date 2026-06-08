@@ -121,6 +121,6 @@ if st.button("Predict"):
     probability = rf_mad_model.predict_proba(input_data)[0]
 
     if prediction == 1:
-        st.error(f"This booking is likely to be CANCELED — Confidence: {round(probability[1]*100, 1)}%")
+        st.error(f"This booking is likely to be CANCELED: Confidence: {round(probability[1]*100, 1)}%")
     else:
-        st.success(f"This booking is likely to SHOW UP — Confidence: {round(probability[0]*100, 1)}%")
+        st.success(f"This booking is likely to SHOW UP: Confidence: {round(probability[0]*100, 1)}%")
