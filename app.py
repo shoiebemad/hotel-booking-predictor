@@ -15,11 +15,11 @@ st.set_page_config(
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-        color: white;
+        background: linear-gradient(135deg, #1c1c1c, #2b2b2b, #3a3a3a);
+        color: #f0f0f0;
     }
     .stButton>button {
-        background-color: #e94560;
+        background-color: #c0392b;
         color: white;
         border-radius: 10px;
         height: 50px;
@@ -29,14 +29,17 @@ st.markdown("""
         border: none;
     }
     .stButton>button:hover {
-        background-color: #c73652;
+        background-color: #a93226;
     }
     .stSelectbox label, .stSlider label, .stNumberInput label {
-        color: white !important;
+        color: #f0f0f0 !important;
         font-size: 15px;
     }
     h1, h2, h3 {
-        color: white !important;
+        color: #f0f0f0 !important;
+    }
+    .stMarkdown p {
+        color: #cccccc !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -77,35 +80,35 @@ is_late_booking = 1 if lead_time < 7 else 0
 market_segment_map = {"Online TA": 4, "Offline TA/TO": 3, "Direct": 2, "Corporate": 1, "Groups": 0}
 market_segment_encoded = market_segment_map[market_segment]
 
-# building the full input with exact 30 features the model was trained on
+# building the full input using mean values for hidden features
 input_data = pd.DataFrame([{
     'hotel': hotel_encoded,
     'lead_time': lead_time,
     'arrival_date_year': 2016,
-    'arrival_date_month': 6,
-    'arrival_date_week_number': 25,
-    'arrival_date_day_of_month': 15,
-    'stays_in_weekend_nights': 1,
-    'stays_in_week_nights': 2,
+    'arrival_date_month': 5.50,
+    'arrival_date_week_number': 27.17,
+    'arrival_date_day_of_month': 15.78,
+    'stays_in_weekend_nights': 0.93,
+    'stays_in_week_nights': 2.50,
     'adults': adults,
     'children': children,
-    'babies': 0,
-    'meal': 0,
-    'country': 0,
+    'babies': 0.01,
+    'meal': 0.56,
+    'country': 93.26,
     'market_segment': market_segment_encoded,
-    'distribution_channel': 1,
+    'distribution_channel': 2.59,
     'is_repeated_guest': is_repeated_guest_encoded,
-    'previous_cancellations': 0,
-    'previous_bookings_not_canceled': 0,
-    'reserved_room_type': 0,
-    'assigned_room_type': 0,
-    'booking_changes': 0,
-    'agent': 0,
-    'company': 0,
-    'days_in_waiting_list': 0,
-    'customer_type': 0,
+    'previous_cancellations': 0.09,
+    'previous_bookings_not_canceled': 0.13,
+    'reserved_room_type': 0.99,
+    'assigned_room_type': 1.33,
+    'booking_changes': 0.22,
+    'agent': 74.76,
+    'company': 10.79,
+    'days_in_waiting_list': 2.34,
+    'customer_type': 2.14,
     'adr': adr,
-    'required_car_parking_spaces': 0,
+    'required_car_parking_spaces': 0.06,
     'total_of_special_requests': total_of_special_requests,
     'has_special_requests': has_special_requests,
     'is_late_booking': is_late_booking
