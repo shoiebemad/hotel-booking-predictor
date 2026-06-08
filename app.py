@@ -63,6 +63,7 @@ with col1:
     lead_time = st.slider("Lead Time (days in advance)", 0, 700, 50)
     adults = st.number_input("Number of Adults", 1, 10, 2)
     children = st.number_input("Number of Children", 0, 10, 0)
+    previous_cancellations = st.number_input("Previous Cancellations", 0, 20, 0)
 
 with col2:
     adr = st.number_input("Average Price Per Night", 0, 1000, 100)
@@ -98,7 +99,7 @@ input_data = pd.DataFrame([{
     'market_segment': market_segment_encoded,
     'distribution_channel': 2.59,
     'is_repeated_guest': is_repeated_guest_encoded,
-    'previous_cancellations': 0.09,
+    'previous_cancellations': previous_cancellations,
     'previous_bookings_not_canceled': 0.13,
     'reserved_room_type': 0.99,
     'assigned_room_type': 1.33,
